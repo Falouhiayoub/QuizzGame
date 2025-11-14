@@ -6,8 +6,7 @@ const Footer = () => {
   return (
     <footer className="footer">
       <p>
-        © {year} TechEdu Learning Center — React Quiz App | Made with 💙 by
-        Students
+        © {year} TechEdu Learning Center — All Right Reserved
       </p>
     </footer>
   );
