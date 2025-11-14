@@ -17,16 +17,14 @@ const Quiz = () => {
   }, []);
 
   const handleAnswer = (selected) => {
-    // calcule nouveau score localement (pour s'assurer du bon chiffre avant navigation)
-    const isCorrect = selected === questionList[currentIndex].answer;
-    const updatedScore = isCorrect ? score + 1 : score;
+    // This checks if the user’s selected answer is the same as the correct answer of the current question.
+    const isCorrect = selected === questionList[currentIndex].answer; // correct answer of this question
+    const updatedScore = isCorrect ? score + 1 : score; // return false or true
     setScore(updatedScore);
 
-    // si ce n'est pas la dernière, avancer
-    if (currentIndex + 1 < questionList.length) {
-      setCurrentIndex((i) => i + 1);
+    if (currentIndex + 1 < questionList.length) { // Checks if there are more questions ahead.
+      setCurrentIndex((i) => i + 1); //If the next index is still inside the list → continue the quiz.
     } else {
-      // dernière question → aller à Résultat en passant le score et le total
       navigate("/result", { state: { score: updatedScore, total: questionList.length } });
     }
   };
